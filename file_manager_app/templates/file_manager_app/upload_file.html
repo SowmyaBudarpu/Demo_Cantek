@@ -1,0 +1,16 @@
+{% extends 'file_manager_app/base.html' %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'file_manager_app/styles.css' %}">
+</head>
+<h2>Upload File
+</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+<a href="{% url 'file_list' %}">Back to file list</a>
+{% endblock %}

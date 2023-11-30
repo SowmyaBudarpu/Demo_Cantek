@@ -1,0 +1,21 @@
+{% extends 'file_manager_app/base.html' %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'file_manager_app/styles.css' %}">
+</head>
+
+<h2>File List</h2>
+    
+<ul>
+    {% for file in files %}
+        <li>
+            {{ file.name }}
+            <a href="{% url 'download_file' file.id %}">Download</a>
+            
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'upload_file' %}">Upload a file</a>
+{% endblock %}
